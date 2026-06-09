@@ -3,14 +3,14 @@ import pandas as pd
 
 file_path = "all_velo_2025-12-12"
 
-okrugs = [
+okrug_of_Moscow = [
     "ВАО", "ЗАО", "ЗелАО", "САО", "СВАО",
     "СЗАО", "ТиНАО", "ЦАО", "ЮАО", "ЮВАО", "ЮЗАО"
 ]
 
 gdf = gpd.read_file(file_path)
 
-filtered = gdf[gdf["OKRUG"].isin(okrugs)]
+filtered = gdf[gdf["OKRUG"].isin(okrug_of_Moscow)]
 
 grouped = (
     filtered.groupby("OKRUG")["LEN"]
