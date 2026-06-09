@@ -15,8 +15,8 @@ filtered = gdf[gdf["OKRUG"].isin(okrugs)]
 grouped = (
     filtered.groupby("OKRUG")["LEN"]
     .sum()
-    .reindex(okrugs)  # Сохраняем нужный порядок
-    .fillna(0) / 1000  # Переводим в километры
+    .reindex(okrugs)
+    .fillna(0) / 1000
 )
 
 grouped["Общий итог"] = grouped.sum()
